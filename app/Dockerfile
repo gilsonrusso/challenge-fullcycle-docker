@@ -8,3 +8,5 @@ RUN apt-get update && \
     chmod +x /usr/bin/wait-for
 
 EXPOSE 3000
+
+CMD [ "node", "src/index.js" ]

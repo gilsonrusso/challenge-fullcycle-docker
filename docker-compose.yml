@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./app
+    container_name: app
+    networks:
+      - fullcycle-networks
+    volumes:
+      - ./app:/usr/src/app
+    tty: true
+    ports:
+      - 3000:3000
+  orchestrator:
+    container_name: orchestrator
+    ports:
+      - 80:80
+    networks:
+      - fullcycle-networks
+    build:
+      context: ./nginx
+
+networks:
+  fullcycle-networks:
+    driver: bridge
